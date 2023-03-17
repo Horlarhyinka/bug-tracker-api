@@ -2,16 +2,18 @@ import nodemailer, { Transporter } from "nodemailer";
 import ejs from "ejs";
 import path from "path";
 import log from "../utils/logger";
+import dotenv from"dotenv";
+dotenv.config()
 
 const configOptions = {
-    port: 465,
+    port: Number(process.env.MAIL_PORT!),
     auth:{
-        user: "4f6b3a50868d83",
-        pass: "4c5a375b0f2808"
+        user: process.env.MAIL_USER!,
+        pass: process.env.MAIL_PASS!
     },
-    service: "mailtrap",
+    service: process.env.MAIL_SERVICE,
     secure: false,
-    host: "smtp.mailtrap.io"
+    host: process.env.MAIL_HOST!
 }
 
 interface mailer_int{
