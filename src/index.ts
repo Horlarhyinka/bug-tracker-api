@@ -6,11 +6,13 @@ import {connect} from "mongoose";
 import dotenv from "dotenv";
 import useMiddleWares from "./startup/middlewares";
 import useRouters from "./startup/routes";
+import useScheduler from "./services/schedule";
 
 dotenv.config()
 const app: Application = express()
 const port: number = Number(process.env.PORT!)
 
+useScheduler()
 useMiddleWares(app)
 useRouters(app)
 

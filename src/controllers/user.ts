@@ -24,7 +24,6 @@ export const login = catchAsync(async(req: Request, res: Response) =>{
     const user = await User.findOne({email}).populate("projects")
     if(!user) return responseHandler.sendResourceNotFound(res, "user")
     const verifiedPassword = await user.verifyPassword(password)
-    console.log(verifiedPassword)
     if(!verifiedPassword)return res.status(401).json({message: "incorrect password"})
     const token = user.genToken()
     res.status(200).json({user: {user: user.email, projects: user.projects}, token: token})

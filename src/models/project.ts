@@ -10,7 +10,8 @@ export interface project_int extends Document{
      removeBug: (id: id_arg_type) => Promise<boolean>,
      resolveBug: (id: id_arg_type) => Promise<bug_int | null>,
      getBugs: ()=>Promise<(bug_int | null)[]>,
-     updateBug: (id: id_arg_type, update: Request["body"])=> Promise<bug_int | null>
+     updateBug: (id: id_arg_type, update: Request["body"])=> Promise<bug_int | null>,
+     getUnresolved: ()=> Promise<(bug_int | null)[]>
     }
 type id_arg_type = string | mongoose.Types.ObjectId
 
@@ -23,7 +24,7 @@ const projectSchema = new Schema<project_int>({
         type: [Schema.Types.ObjectId],
         ref: "bug"
     },
-},{ timestamps: true})
+},{ timestamps: true, virtuals: true})
 
 projectSchema.methods.addBug = async function(description: string){
     const bug = await Bug.create({description}) as bug_int
@@ -90,6 +91,11 @@ projectSchema.methods.updateBug = async function (id: id_arg_type, update: Reque
     })
     await bug.save()
     return bug;
+}
+
+projectSchema.methods.getUnresolved = async function(){
+    const populated = await this.populate("bugs") as project_int
+    return (populated.bugs as (bug_int | null)[]).filter((bug) => !bug?.resolved)
 }
 
 export default model<project_int>("project", projectSchema)
