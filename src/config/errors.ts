@@ -6,11 +6,13 @@ const exit = (code: number) => process.exit(code)
 
 export default () =>{
     process.on("uncaughtException",(ex: ex_type)=>{
+        console.log(ex)
     log("error", ex)
     exit(1)
 })
 
 process.on("unhandledRejection", (ex: ex_type)=>{
+    console.log(ex)
     log("error", ex)
     exit(1)
 })
