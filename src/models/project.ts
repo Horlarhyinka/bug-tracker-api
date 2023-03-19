@@ -60,18 +60,14 @@ projectSchema.methods.getBug = async function(id: id_arg_type){
 
 projectSchema.methods.resolveBug = async function(id: id_arg_type){
     try{
-        const project = await (this as project_int).populate("bugs")
-        let bugs = project.bugs as (bug_int | null)[]
-        const index: number = bugs.findIndex(bug => String(bug?._id) === id)
-        if(index < 0) return null;
-        const target: bug_int = bugs[index]!
-        const status = !target!.resolved? true: false;
-        (bugs[index] as bug_int).resolved = status;
-        (this as project_int).bugs = bugs
-        await this.save()
-        target.resolved = status
-        return target
+        const target = (this as project_int).bugs.find(bug => String(bug) === id);
+        if(!target) return null;
+        const bug = await Bug.findById(target) as bug_int;
+        const newStatus = bug.resolved? false: true;
+        bug.set("resolved", newStatus)
+        return await bug.save()
     }catch(ex){
+        console.log(ex)
         return null
     }
 }
