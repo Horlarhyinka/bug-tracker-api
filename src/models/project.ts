@@ -67,7 +67,6 @@ projectSchema.methods.resolveBug = async function(id: id_arg_type){
         bug.set("resolved", newStatus)
         return await bug.save()
     }catch(ex){
-        console.log(ex)
         return null
     }
 }
