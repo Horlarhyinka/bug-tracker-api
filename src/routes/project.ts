@@ -13,8 +13,8 @@ router.put("/:id", projects.updateProject)
 router.put("/:id/bugs/", projects.addBug)
 router.get("/:id/bugs/", projects.getBugs)
 router.get("/:projectId/bugs/:id", ObjectId, projects.getBug)
-router.patch("/:projectId/bugs/:id", ObjectId, projects.updateBug)
-router.put("/:projectId/bugs/:id", ObjectId, projects.resolveBug)
+router.put("/:projectId/bugs/:id", ObjectId, projects.updateBug)
+router.patch("/:projectId/bugs/:id", ObjectId, projects.resolveBug)
 router.delete("/:projectId/bugs/:id", ObjectId, projects.removeBug)
 
 
