@@ -7,16 +7,15 @@ import * as projects from "../controllers/project";
 router.get("/", projects.getProjects)
 router.post("/", projects.addProject)
 router.use("/:id", ObjectId)
-router.use("/:projectId", ObjectId)
 router.delete("/:id", projects.removeProject)
 router.get("/:id", projects.getProject)
 router.put("/:id", projects.updateProject)
 router.put("/:id/bugs/", projects.addBug)
 router.get("/:id/bugs/", projects.getBugs)
-router.get("/:projectId/bugs/:id",projects.getBug)
-router.patch("/:projectId/bugs/:id", projects.updateBug)
-router.put("/:projectId/bugs/:id", projects.resolveBug)
-router.delete("/:projectId/bugs/:id", projects.removeBug)
+router.get("/:projectId/bugs/:id", ObjectId, projects.getBug)
+router.patch("/:projectId/bugs/:id", ObjectId, projects.updateBug)
+router.put("/:projectId/bugs/:id", ObjectId, projects.resolveBug)
+router.delete("/:projectId/bugs/:id", ObjectId, projects.removeBug)
 
 
 

@@ -232,3 +232,21 @@
 {"level":"info","message":"app running development mode on port 8000"}
 {"level":"info","message":"connected to db"}
 {"level":"info","message":"app running development mode on port 8000"}
+{"level":"info","message":"connected to db"}
+{"level":"info","message":"app running development mode on port 8000"}
+{"level":"info","message":"connected to db"}
+{"level":"info","message":"app running development mode on port 8000"}
+{"level":"error","message":"{\"stringValue\":\"\\\"8\\\"\",\"valueType\":\"string\",\"kind\":\"ObjectId\",\"value\":\"8\",\"path\":\"_id\",\"reason\":{},\"name\":\"CastError\",\"message\":\"Cast to ObjectId failed for value \\\"8\\\" (type string) at path \\\"_id\\\" for model \\\"bug\\\"\"}"}
+{"level":"info","message":"connected to db"}
+{"level":"info","message":"app running development mode on port 8000"}
+{"level":"error","message":"{\"stringValue\":\"\\\"8\\\"\",\"valueType\":\"string\",\"kind\":\"ObjectId\",\"value\":\"8\",\"path\":\"_id\",\"reason\":{},\"name\":\"CastError\",\"message\":\"Cast to ObjectId failed for value \\\"8\\\" (type string) at path \\\"_id\\\" for model \\\"bug\\\"\"}"}
+{"level":"info","message":"connected to db"}
+{"level":"info","message":"app running development mode on port 8000"}
+{"level":"error","message":"{\"stringValue\":\"\\\"8\\\"\",\"valueType\":\"string\",\"kind\":\"ObjectId\",\"value\":\"8\",\"path\":\"_id\",\"reason\":{},\"name\":\"CastError\",\"message\":\"Cast to ObjectId failed for value \\\"8\\\" (type string) at path \\\"_id\\\" for model \\\"bug\\\"\"}"}
+{"level":"info","message":"connected to db"}
+{"level":"info","message":"app running development mode on port 8000"}
+{"level":"error","message":"{\"stringValue\":\"\\\"8\\\"\",\"valueType\":\"string\",\"kind\":\"ObjectId\",\"value\":\"8\",\"path\":\"_id\",\"reason\":{},\"name\":\"CastError\",\"message\":\"Cast to ObjectId failed for value \\\"8\\\" (type string) at path \\\"_id\\\" for model \\\"bug\\\"\"}"}
+{"level":"info","message":"connected to db"}
+{"level":"info","message":"app running development mode on port 8000"}
+{"level":"info","message":"connected to db"}
+{"level":"info","message":"app running development mode on port 8000"}
