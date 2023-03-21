@@ -23,7 +23,7 @@ interface mailer_int{
 
 export default class Mailer implements mailer_int{
     constructor( private email: string, private transporter: Transporter = nodemailer.createTransport(configOptions) ){}
-    private mailoption:{ to: string, from: string, html?: string } = {to: this.email, from:"test@gmail.com", }
+    private mailoption:{ to: string, from: string, html?: string } = {to: this.email, from:process.env.MAIL_USER!, }
     readonly sendReminder = async(numberOfBugs: number) =>{
         try{
         const file = await ejs.renderFile(path.resolve(__dirname, "../views/reminder.ejs"), {numberOfBugs})

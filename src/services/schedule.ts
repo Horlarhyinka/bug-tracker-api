@@ -5,7 +5,7 @@ import Mailer from "./mail";
 import log from "../utils/logger";
 
 export default () =>{
-    cron.schedule("* 21 * * *",async()=>{
+    cron.schedule("26 16 * * *",async()=>{
         try{
         const users = await User.find()
         users.forEach(async(user: User_int)=>{
