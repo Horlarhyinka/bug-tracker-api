@@ -5,7 +5,8 @@ import Mailer from "./mail";
 import log from "../utils/logger";
 
 export default () =>{
-    cron.schedule("26 16 * * *",async()=>{
+    cron.schedule("* 21 * * *",async()=>{
+        log("info", "time for cron job")
         try{
         const users = await User.find()
         users.forEach(async(user: User_int)=>{
@@ -22,6 +23,7 @@ export default () =>{
             const mailer = new Mailer(user.email)
             !numberOfBugs? await mailer.sendCongratulation(): await mailer.sendReminder(numberOfBugs)
         })
+            log("info", "cron job done...")
         }catch(ex){
             log("error", "cron job failed" + JSON.stringify(ex))
         }
